@@ -8,6 +8,9 @@ subData <- powerData[powerData$Date %in% c("1/2/2007","2/2/2007") ,]
 head(subData)
 
 
+# Get weekdays in English
+dev_null <- Sys.setlocale("LC_TIME", "english")
+
 # Plot a Histogram and create a Graphic Device
 globalActivePower <- as.numeric(subData$Global_active_power)
 datetime <- strptime(paste(subData$Date, subData$Time, sep=" "), "%d/%m/%Y %H:%M:%S") 
